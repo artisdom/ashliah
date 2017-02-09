@@ -58,6 +58,13 @@ defmodule Ashliah.Protocol.Parser do
     }
   end
 
+  @doc """
+    Parses a heartbeat. A heartbeat in IEX-TP is a Message Header but with only 
+    the stream offset and first message sequence number populated (or at least used)
+
+    - Returns:
+      Ashliah.Protocol.Heartbeat
+  """
   @spc parse_heartbeat(binary) :: Ashliah.Protocol.Heartbeat
   def parse_heartbeat(data) do
       <<
@@ -75,6 +82,11 @@ defmodule Ashliah.Protocol.Parser do
     }
   end
 
+  @doc """
+    Parses a retransmission request header. 
+    - Returns
+      Ashliah.Protocol.RetransmissionRequestHeader
+  """
   @spec parse_retransmission_request_header(binary) :: Ashliah.Protocol.RetransmissionRequestHeader
   def parse_retransmission_request_header(data) do
     <<
@@ -96,6 +108,11 @@ defmodule Ashliah.Protocol.Parser do
     }
   end
 
+  @doc """
+    Parses a request range block that is in a stream form. 
+    - Returns 
+      Ashliah.Protocol.RequestRangeBlockStream
+  """
   @spec parse_request_range_block_stream(binary) :: Ashliah.Protocol.RequestRangeBlockStream
   def parse_request_range_block_stream(data) do
     <<
@@ -109,6 +126,14 @@ defmodule Ashliah.Protocol.Parser do
     }
   end
 
+  @doc """
+    Parses a range block that is in a sequence form and not in stream form. This is the same
+    logic as parse_request_range_block_stream but just returns a different struct to correspond
+    with the range block type
+
+    - Returns 
+        Ashliah.Protocol.RequestRangeBlockSequence
+  """
   @spec parse_request_range_block_sequence(binary) :: Ashliah.Protocol.RequestRangeBlockSequence
   def parse_request_range_block_sequence(data) do
     <<

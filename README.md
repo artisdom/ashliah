@@ -1,19 +1,3 @@
 # Ashliah
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ashliah` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:ashliah, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ashliah](https://hexdocs.pm/ashliah).
-
+Ashliah is a library to parse the IEX-TP protocol. The IEX-TP protocol is used by the Investor's Exchange as their market data protocol. You can view the spec here:https://www.iextrading.com/docs/IEX%20Transport%20Specification.pdf
