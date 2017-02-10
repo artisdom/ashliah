@@ -11,7 +11,7 @@ defmodule Ashliah.Protocol.Parser do
     Returns - 
       Ashliah.Protocol.MessageHeader
   """
-  @spec parse_header(binary) :: Ashliah.Protocol.MessageHeader
+  @spec parse_header(Binary.t) :: Ashliah.Protocol.MessageHeader
   def parse_header(data) do
     <<
       version :: size(1),
@@ -44,7 +44,7 @@ defmodule Ashliah.Protocol.Parser do
     - Returns
         Ashliah.Protocol.MessageBlock
   """
-  @spec parse_message_block(binary, integer) :: Ashliah.Protocol.MessageBlock
+  @spec parse_message_block(Binary.t, integer) :: Ashliah.Protocol.MessageBlock
   def parse_message_block(data, offset) do
     <<
       _ :: size(offset),
@@ -65,7 +65,7 @@ defmodule Ashliah.Protocol.Parser do
     - Returns:
       Ashliah.Protocol.Heartbeat
   """
-  @spc parse_heartbeat(binary) :: Ashliah.Protocol.Heartbeat
+  @spec parse_heartbeat(binary) :: Ashliah.Protocol.Heartbeat
   def parse_heartbeat(data) do
       <<
       _ :: size(12),
@@ -134,7 +134,7 @@ defmodule Ashliah.Protocol.Parser do
     - Returns 
         Ashliah.Protocol.RequestRangeBlockSequence
   """
-  @spec parse_request_range_block_sequence(binary) :: Ashliah.Protocol.RequestRangeBlockSequence
+  @spec parse_request_range_block_sequence(Binary.t) :: Ashliah.Protocol.RequestRangeBlockSequence
   def parse_request_range_block_sequence(data) do
     <<
       first_message_sequence_number :: size(8),
